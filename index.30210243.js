@@ -1,0 +1,2 @@
+var refs={drugsList:document.querySelector("#drugs")};function Markup(n){return n.map((function(n){return'<li>\n            <img src="'.concat(n.url,'" alt="').concat(image.brand_name,'" loading="lazy" />\n            <h3>').concat(n.brand_name,"</h3>\n            <p>").concat(n.unit_price,'</p>\n            <button type="button">Add to Cart</button>\n        </li>')}))}
+//# sourceMappingURL=index.30210243.js.map
