@@ -59,6 +59,7 @@ img {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+/*------------------------------------------SHOP PAGE------------------------------*/
 /*---------------HEADER--------------*/
 .navList {
     display: flex;
@@ -127,6 +128,7 @@ main {
     border-radius: 12px;
 }
 button {
+    font-size: 24px;
     cursor: pointer;
     padding: 8px;
     border-radius: 12px;
@@ -135,4 +137,81 @@ button {
 button:hover,
 button:focus {
     background-color: grey;
+}
+/*--------------------------------------------------SHOPING CART PAGE------------------------------------------------------*/
+.drugsBasket {
+    height: 500px;
+    min-width: 700px;
+    overflow-y: scroll;
+    padding: 30px 50px;
+    border: 3px solid grey;
+    border-radius: 12px;
+}
+.itemDrugsBasket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 3px solid grey;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+.infoDrug {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 20px;
+    align-items: center;
+    max-width: 220px;
+}
+.inputSection {
+    height: 500px;
+    min-width: 200px;
+    padding: 30px 50px;
+    border: 3px solid grey;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.inputSection form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 24px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+.order-form {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.submit-info {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-size: 24px;
 }

@@ -1,33 +1,56 @@
-import { fetchProducts } from "./api";
+import { fetchProducts } from "./servises/api";
+import {MarkupMain} from "./helpers/markup";
 
-const refs = {
-    drugsList: document.querySelector('#drugs')
-};
+    const drugsList = document.querySelector('#drugs');
 
-async function renderDrugs() {
-    try {
-        const products = await fetchProducts();
-        console.log(products)
-        const markup = Markup(products);
-        refs.drugsList.innerHTML = markup;
-    } catch (error) {
-        console.error('Error fetching products:', error);
+    async function renderDrugs() {
+        try {
+            const products = await fetchProducts();
+            console.log(products);
+            const markup = MarkupMain(products);
+            drugsList.innerHTML = markup;
+            addEventListeners();
+        } catch (error) {
+            console.error('Error fetching products:', error);
+        }
     }
+
+    renderDrugs();
+
+    function addEventListeners() {
+    drugsList.addEventListener('click', function(event) {
+        if (event.target.classList.contains('addToCart')) {
+            const listItem = event.target.closest('li');
+            if (listItem) {
+                const itemId = listItem.getAttribute('id');
+                const itemTitle = listItem.querySelector('h3').innerText;
+                const itemPrice = listItem.querySelector('p').innerText;
+                const itemImage = listItem.querySelector('img').innerText;
+                const itemData = {
+                    _id: itemId,
+                    title: itemTitle,
+                    price: itemPrice,
+                    image: itemImage,
+                };
+
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                const isItemInCart = cartItems.some(item => item._id === itemId);
+                if (!isItemInCart) {
+                    cartItems.push(itemData);
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    alert('Item added to cart!');
+                } else {
+                    alert('Item is already in the cart!');
+                }
+            }
+        }
+    });
 }
 
-renderDrugs();
 
-function Markup(data) {
-    return data.map(item => {
-        const imgSrc = (item.image && item.image.trim() !== '') ? item.image : 'https://cdn1.iconfinder.com/data/icons/pikku-ui/16/image-512.png';
-        return `<li class="itemDrugs" id="${item._id}">
-            <img src="${imgSrc}" alt="${item.title}" loading="lazy" />
-            <h3>${item.title}</h3>
-            <p>${item.price}</p>
-            <button type="button">Add to Cart</button>
-        </li>`;
-    }).join('');
-}
+
+
+
 
 
 
