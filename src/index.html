@@ -15,7 +15,7 @@
     <header class="container">
         <nav class="navList">
             <li>
-                <a href="index.html">Shop</a>
+                <a class="currentPage" href="index.html">Shop</a>
             </li>
             <li>
                 <a href="./shopingCart.html">Shoping Cart</a>
@@ -27,15 +27,16 @@
         <aside class="shopList">
             <h2>Shops</h2>
             <ul>
-                <li>Pharmacy 24</li>
-                <li>Medical shop</li>
+                <li class="itemShoplist">
+                    <a href="./index.html">Best Shop</a>
+                </li>
             </ul>
         </aside>
         <div>
-            <ul id="drugs"></ul>
+            <ul class="drugsList" id="drugs"></ul>
         </div>
     </main>
     <footer class="container"></footer>
-    <script src="./main.js"></script>
+    <script src="./index.js" type="module"></script>
 </body>
 </html>

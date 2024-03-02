@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
-    "axios": "^1.6.2",
+    "axios": "^1.6.7",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "simplelightbox": "^2.14.2"
