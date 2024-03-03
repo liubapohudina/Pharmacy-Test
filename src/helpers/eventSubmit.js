@@ -1,3 +1,5 @@
+import { setLocalStorageOrder, getLocalStorage } from "./localStorage";
+
 function handleSubmit(event) {
   event.preventDefault();
     const form = event.target;
@@ -9,8 +11,27 @@ function handleSubmit(event) {
   if (name === "" || email === "" || phone === '' || address === '') {
     return console.log("Please fill in all the fields!");
   }
-
-  console.log(`Name: ${name}, Email: ${email}, Phone: ${phone}, Address: ${address}`);
-  form.reset();
+  /*---------------збираємо дані--------------*/
+       const userData = {
+        name: name,
+        email: email,
+        phone: phone,
+        address: address
+    };
+  
+    const cartOrder = JSON.parse(localStorage.getItem('cartOrder')) || JSON.parse(localStorage.getItem('cartItems'));
+    const orderNumber = Date.now();
+    /*--------------зберігаємо карту з замовленням----------------*/
+    /*----------отримуємо попередні замовлення---------------------*/
+    let existOrders = getLocalStorage() || [];
+    /*-------------додаємо поточне замовлення------------------*/
+    existOrders.push({
+        number: orderNumber,
+        user: userData,
+        products: cartOrder
+    });
+    /*---------------зберігаємо попередні і поточне замовлення-----------*/
+    setLocalStorageOrder(existOrders)
+    form.reset();
 }
 export default handleSubmit;

@@ -1,4 +1,5 @@
 import totalPrice from './totalPrice';
+import { setLocalStorageOrder } from './localStorage';
 
 function counterBasket(products) {
     const buttons = document.querySelectorAll("#counter button");
@@ -34,6 +35,8 @@ function counterBasket(products) {
             /*------------викликаємо тотал з новим quantity------*/
             total = totalPrice(products); 
             totalPriceInfo.innerHTML = total;
+             
+             localStorage.setItem('cartOrder', JSON.stringify(products))
         });
     });
 }
