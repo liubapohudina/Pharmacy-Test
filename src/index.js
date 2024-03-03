@@ -7,7 +7,6 @@ import { addEventListeners } from "./helpers/events";
     async function renderDrugs() {
         try {
             const products = await fetchProducts();
-            console.log(products);
             const markup = MarkupMain(products);
             drugsList.innerHTML = markup;
             addEventListeners();

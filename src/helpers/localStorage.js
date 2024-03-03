@@ -12,3 +12,5 @@ export function setLocalStorageOrder(products) {
 export function getLocalStorage() {
   return JSON.parse(localStorage.getItem('cartOrders'))
 }
+
+

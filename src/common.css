@@ -221,3 +221,24 @@ button:focus {
     align-items: center;
     font-size: 24px;
 }
+/*----------------------------HISTORY PAGE-----------------------*/
+.orderList {
+    justify-content: end;
+    padding: 30px 20px;
+}
+.historyItem {
+    max-width: 355px;
+}
+.orderList h2:not(:first-child) {
+    border-top: 3px solid grey;
+}
+.orderBlock {
+    text-align: center;
+}
+.historyList {
+    font-size: 20px;
+    justify-content: space-around;
+}
+.history-form {
+    align-items: flex-start;
+}

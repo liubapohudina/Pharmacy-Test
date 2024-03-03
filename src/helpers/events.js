@@ -2,8 +2,7 @@ import { setLocalStorageOrder, getLocalStorage } from "./localStorage";
 
 /*-------------------------------EVENT SUBMIT----------------------------------------------------*/
 export function handleSubmit(event) {
-    const form = event.target;
-    console.log(form)
+  const form = event.target;
   const name = form.elements.name.value;
   const email = form.elements.email.value;
   const phone = form.elements.phone.value;
