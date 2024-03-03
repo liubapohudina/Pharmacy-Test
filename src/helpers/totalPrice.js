@@ -1,6 +1,13 @@
-function totalPrice(data) {
-    let totalPrice = data.reduce((acc, item) => acc + parseFloat(item.price), 0);
-    let totalPriceFixed = totalPrice.toFixed(2);
-    return `<p>Total price: ${totalPriceFixed}</p>`
+
+
+function totalPrice(products) {
+    let total = products.reduce((acc, product) => {
+        const price = parseFloat(product.price);
+        const quantity = parseInt(product.quantity);
+        return acc + (price * quantity);
+    }, 0);
+    const fixPrice = total.toFixed(2);
+    return `<p>Total price: ${fixPrice}</p>`
 }
+
 export default totalPrice;

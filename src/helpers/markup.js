@@ -17,7 +17,12 @@ export function MarkupBasket(data) {
                 <img src="${imgSrc}" alt="${item.title}" loading="lazy" width="300"/>
                 <div class="infoDrug"
                 <h3>${item.title}</h3>
-                <p>${item.price}</p>
+                <p id="price">${item.price}</p>
+                    <div id="counter">
+                    <button type="button" data-action="decrement">-1</button>
+                      <span id="value">1</span>
+                    <button type="button" data-action="increment">+1</button>
+                 </div>
                 </div>
             </li>`;
         }).join('');

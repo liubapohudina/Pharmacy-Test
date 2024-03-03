@@ -31,6 +31,7 @@ import {MarkupMain} from "./helpers/markup";
                     title: itemTitle,
                     price: itemPrice,
                     image: itemImage,
+                    quantity: 1,
                 };
 
                 let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];

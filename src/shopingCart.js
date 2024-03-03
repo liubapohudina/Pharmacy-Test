@@ -1,5 +1,7 @@
 import { MarkupBasket, BasketEmpty } from "./helpers/markup";
-import totalPrice from "./helpers/totalPrice";
+//import totalPrice from "./helpers/totalPrice";
+import counterBasket from "./helpers/counter";
+
 
 
 const productsList = document.querySelector("#drugsBasket");
@@ -12,8 +14,9 @@ function getProductsBasket() {
         if (products.length > 0) {
             const markup = MarkupBasket(products);
             productsList.innerHTML = markup;
-            const totPrice = totalPrice(products);
-            totalPriceInfo.innerHTML = totPrice;
+            counterBasket(products)
+            // const totPrice = totalPrice(products);
+            // totalPriceInfo.innerHTML = totPrice;
 
         } else {
            productsList.innerHTML =  BasketEmpty()
@@ -21,7 +24,7 @@ function getProductsBasket() {
         
 
     } catch (error) {
-        alert(error)
+        console.log(error)
         return error;
     }
 }
