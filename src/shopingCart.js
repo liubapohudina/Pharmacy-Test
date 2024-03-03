@@ -1,11 +1,13 @@
 import { MarkupBasket, BasketEmpty } from "./helpers/markup";
-//import totalPrice from "./helpers/totalPrice";
 import counterBasket from "./helpers/counter";
-
+import handleSubmit from "./helpers/eventSubmit";
 
 
 const productsList = document.querySelector("#drugsBasket");
-const totalPriceInfo = document.querySelector("#totalPrice");
+/*---------слухач на відправлення форми--------------*/
+const orderForm = document.querySelector(".contact-form");
+orderForm.addEventListener("submit", handleSubmit);
+
 
 
 function getProductsBasket() {
@@ -14,15 +16,10 @@ function getProductsBasket() {
         if (products.length > 0) {
             const markup = MarkupBasket(products);
             productsList.innerHTML = markup;
-            counterBasket(products)
-            // const totPrice = totalPrice(products);
-            // totalPriceInfo.innerHTML = totPrice;
-
+            counterBasket(products);
         } else {
            productsList.innerHTML =  BasketEmpty()
-        }
-        
-
+        }        
     } catch (error) {
         console.log(error)
         return error;
