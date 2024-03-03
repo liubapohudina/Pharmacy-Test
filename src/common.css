@@ -156,6 +156,12 @@ button:focus {
     border: 3px solid grey;
     border-radius: 12px;
     margin-bottom: 15px;
+    position: relative;
+}
+.btnDelete {
+    position: absolute;
+    top: 10px;
+    right: 20px;
 }
 .infoDrug {
     display: flex;

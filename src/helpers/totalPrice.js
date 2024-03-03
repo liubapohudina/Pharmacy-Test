@@ -7,7 +7,7 @@ function totalPrice(products) {
         return acc + (price * quantity);
     }, 0);
     const fixPrice = total.toFixed(2);
-    return `<p>Total price: ${fixPrice}</p>`
+    return fixPrice;
 }
 
 export default totalPrice;

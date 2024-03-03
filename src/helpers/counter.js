@@ -1,12 +1,11 @@
 import totalPrice from './totalPrice';
-import { setLocalStorageOrder } from './localStorage';
 
 function counterBasket(products) {
     const buttons = document.querySelectorAll("#counter button");
     const totalPriceInfo = document.querySelector("#totalPrice");
     /*------------------перший рендер товарів------------------*/
     let total = totalPrice(products); 
-    totalPriceInfo.innerHTML = total;
+    totalPriceInfo.innerHTML = `<p>Total price: ${total}</p>`;
 
     buttons.forEach(button => {
         button.addEventListener("click", () => {
@@ -34,8 +33,10 @@ function counterBasket(products) {
             
             /*------------викликаємо тотал з новим quantity------*/
             total = totalPrice(products); 
-            totalPriceInfo.innerHTML = total;
-             
+            totalPriceInfo.innerHTML = `<p>Total price: ${total}</p>`;
+            /*------------записуємо новий тотал------------------*/
+            updatedProduct.total = total;
+
              localStorage.setItem('cartOrder', JSON.stringify(products))
         });
     });

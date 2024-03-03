@@ -1,6 +1,6 @@
 import { MarkupBasket, BasketEmpty } from "./helpers/markup";
 import counterBasket from "./helpers/counter";
-import handleSubmit from "./helpers/eventSubmit";
+import {handleSubmit, handleClickDelete} from "./helpers/events";
 
 
 const productsList = document.querySelector("#drugsBasket");
@@ -17,6 +17,7 @@ function getProductsBasket() {
             const markup = MarkupBasket(products);
             productsList.innerHTML = markup;
             counterBasket(products);
+            handleClickDelete(productsList)
         } else {
            productsList.innerHTML =  BasketEmpty()
         }        

@@ -15,6 +15,7 @@ export function MarkupBasket(data) {
             const imgSrc = (item.image && item.image.trim() !== '') ? item.image : 'https://cdn1.iconfinder.com/data/icons/pikku-ui/16/image-512.png';
             return `<li class="itemDrugsBasket" id="${item._id}">
                 <img src="${imgSrc}" alt="${item.title}" loading="lazy" width="300"/>
+                <button class="btnDelete" type="button">X</button>
                 <div class="infoDrug"
                 <h3>${item.title}</h3>
                 <p id="price">${item.price}</p>
@@ -31,3 +32,21 @@ export function MarkupBasket(data) {
 export function BasketEmpty() {
     return `<p>Basket is empty!Please add products</p>`
 }
+export function MarkupHistoryOrders(data) {
+    let markup = '';
+    data.forEach(order => {
+        order.products.map(item => {
+            const imgSrc = (item.image && item.image.trim() !== '') ? item.image : 'https://cdn1.iconfinder.com/data/icons/pikku-ui/16/image-512.png';
+            markup += `<li class="itemDrugs" id="${item._id}">
+                <img src="${imgSrc}" alt="${item.title}" loading="lazy" />
+                <h3>${item.title}</h3>
+                <p>${item.price}</p>
+                <p>Quantity: ${item.quantity}</p>
+                <p>Total: ${item.total}</p>
+            </li>`;
+        });
+    });
+
+    return markup;
+}
+
